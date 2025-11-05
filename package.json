@@ -1,0 +1,31 @@
+{
+  "name": "log-triage-sandbox",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "engines": { "node": ">=18" },
+  "scripts": {
+    "build": "tsc -p tsconfig.json && node dist/postbuild.cjs",
+    "dev": "tsx src/cli.ts --in sample-logs/*.log --rules rules.example.json --out out",
+    "triage": "node dist/cli.js --in 'sample-logs/*.log' --rules rules.example.json --out out",
+    "report": "node dist/report.js --json out/triage.json --out docs",
+    "test": "vitest run",
+    "fmt": "prettier . --write",
+    "lint": "eslint . --ext .ts"
+  },
+  "dependencies": {
+    "fast-glob": "^3.3.2",
+    "yargs": "^17.7.2"
+  },
+  "devDependencies": {
+    "@types/node": "^20.11.30",
+    "@types/yargs": "^17.0.33",
+    "eslint": "^9.12.0",
+    "eslint-config-prettier": "^9.1.0",
+    "eslint-plugin-import": "^2.29.1",
+    "prettier": "^3.3.3",
+    "tsx": "^4.19.1",
+    "typescript": "^5.6.3",
+    "vitest": "^2.1.3"
+  }
+}
