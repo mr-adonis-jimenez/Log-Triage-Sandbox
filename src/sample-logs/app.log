@@ -1,0 +1,6 @@
+[2025-11-05T10:00:00Z] [INFO] auth: user login ok
+[2025-11-05T10:01:00Z] [WARN] api: slow request 1200ms
+[2025-11-05T10:02:00Z] [ERROR] billing: charge failed
+{"ts":"2025-11-05T10:03:00Z","level":"error","service":"auth","message":"unauthorized token","meta":{"ip":"1.2.3.4"}}
+{"time":"2025-11-05T10:03:10Z","severity":"info","app":"worker","msg":"heartbeat ok"}
+INFO - retry attempt #2 after ECONNRESET
