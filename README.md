@@ -1,18 +1,17 @@
-# Log Triage Sandbox (TypeScript)
+# Log Triage Sandbox
 
-A small, repo-ready sandbox to parse mixed logs, apply rules, and produce reports. No backend. Perfect for GitHub Pages.
+A TypeScript-based log triage sandbox application for parsing, filtering, and managing log entries in a development environment.
 
 ## Features
-- Parse JSON and text logs (`[ts] [LEVEL] service: msg`).
-- Rules JSON (`where` + `action`) with buckets, tags, severity bump, drop.
-- Outputs: `out/triage.json`, `out/triage.md`, and HTML report to `docs/`.
-- Sample logs and rules included.
-- CI workflow + tests (Vitest).
 
-## Quickstart
+- 📝 **Multiple Log Format Support** - Parse JSON and standard log formats
+- 🔍 **Advanced Filtering** - Filter by level, status, source, date range, and search terms
+- 🏷️ **Triage Management** - Assign, resolve, ignore, and reopen log entries
+- 📊 **Statistics Dashboard** - View aggregated statistics by level, status, and source
+- 🎯 **Type-Safe** - Full TypeScript support with comprehensive type definitions
+- 🧪 **Sandbox Environment** - Safe testing environment for log management workflows
+
+## Installation
+
 ```bash
-npm i
-npm run build
-npm run triage
-npm run report
-# open docs/index.html
+npm install log-triage-sandbox
