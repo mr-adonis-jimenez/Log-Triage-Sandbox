@@ -1,0 +1,23 @@
+<h1>LogLab</h1>
+
+<input type="file" id="logFile" />
+<input type="text" id="searchInput" placeholder="Filter logs..." />
+
+<select id="levelFilter">
+  <option value="">All Levels</option>
+  <option value="INFO">INFO</option>
+  <option value="WARN">WARN</option>
+  <option value="ERROR">ERROR</option>
+</select>
+
+<pre id="logOutput"></pre>
+
+<button onclick="exportFilteredLogs(currentFilteredLogs)">
+  Export Filtered Logs
+</button>
+
+<pre id="securityOutput"></pre>
+
+<pre id="mitreOutput"></pre>
+
+<pre id="threatOutput"></pre>
