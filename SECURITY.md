@@ -1,16 +1,16 @@
-# Security Policy for log-triage-sandbox
+# Security Policy for Log Triage Sandbox
 
 ## 🛡️ Our Commitment
 
-Security is a top priority for `log-triage-sandbox`. We value the work of security researchers and appreciate any effort to responsibly identify and report vulnerabilities.
+Security is a top priority and we value the work of security researchers and appreciate any effort to responsibly identify and report vulnerabilities.
 
-If you believe you have found a security vulnerability, we encourage you to report it to us as soon as possible. We are committed to working with you to understand and resolve the issue.
+If you believe you have found a security vulnerability, we encourage you to report it as soon as possible. We're committed to working with you to understand and resolve the issue.
 
 ## Reporting a Vulnerability
 
 **Please do not report security vulnerabilities through public GitHub issues.**
 
-We use **GitHub's Private Vulnerability Reporting** feature, as it's the most secure and direct way to get the report to us.
+Please use **GitHub's Private Vulnerability Reporting** feature, as it's the most secure and direct way to submit your report.
 
 1.  Navigate to the main page of the repository.
 2.  Under the repository name, click the **"Security"** tab.
