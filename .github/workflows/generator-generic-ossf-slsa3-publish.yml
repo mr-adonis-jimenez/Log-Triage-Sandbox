@@ -18,12 +18,28 @@ jobs:
     
     steps:
       - uses: actions/checkout@v4
+
+          - name: Setup Node.js
+      uses: actions/setup-node@v4
+      with:
+        node-version: '20'
+        cache: 'npm'
       
-      - name: Build artifacts
-        run: |
-          echo "Building artifacts..."
-          mkdir -p dist
-          echo "Sample artifact" > dist/artifact.txt
+      - name: Build artifactsSetup Node.js and build React app
+      run: |
+        # Install Node.js dependencies
+        npm ci
+        
+        # Build the Vite application
+        npm run build
+        
+        # Create distribution package
+        cd dist
+        tar -czf ../log-triage-sandbox.tar.gz *
+        cd ..
+        
+        # Move tarball to dist for publishing
+                mv log-triage-sandbox.tar.gz dist/
       
       - name: Generate hash
         shell: bash
