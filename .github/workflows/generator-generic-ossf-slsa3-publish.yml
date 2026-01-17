@@ -1,0 +1,51 @@
+name: Publish with SLSA Provenance
+
+on:
+  workflow_dispatch:
+  release:
+    types: [published]
+
+permissions:
+  contents: read
+
+jobs:
+  build:
+    permissions:
+      contents: read
+    runs-on: ubuntu-latest
+    outputs:
+      digests: ${{ steps.hash.outputs.digests }}
+    
+    steps:
+      - uses: actions/checkout@v4
+      
+      - name: Build artifacts
+        run: |
+          echo "Building artifacts..."
+          mkdir -p dist
+          echo "Sample artifact" > dist/artifact.txt
+      
+      - name: Generate hash
+        shell: bash
+        id: hash
+        run: |
+          cd dist
+          echo "digests=$(sha256sum * | base64 -w0)" >> "$GITHUB_OUTPUT"
+      
+      - name: Upload artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: artifacts
+          path: dist/
+          if-no-files-found: error
+
+  provenance:
+    needs: [build]
+    permissions:
+      actions: read
+      id-token: write
+      contents: write
+    uses: slsa-framework/slsa-github-generator/.github/workflows/generator_generic_slsa3.yml@v1.9.0
+    with:
+      base64-subjects: "${{ needs.build.outputs.digests }}"
+      upload-assets: true
