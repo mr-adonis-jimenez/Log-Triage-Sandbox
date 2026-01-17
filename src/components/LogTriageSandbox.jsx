@@ -325,4 +325,64 @@ const LogTriageSandbox = () => {
         {/* Log Detail Modal */}
         {selectedLog && (
           <div className="fixed inset-0 bg-black/70 flex items-center justify-center p-6 z-50">
-            <div className="bg-gray-800 rounded-lg max-w-4xl w-full max-h
+            <div className="bg-gray-800 rounded-lg max-w-4xl w-full max-h-[90vh] overflow-auto">
+              <div className="flex items-center justify-between mb-6">
+                <h2 className="text-2xl font-bold">Log Details</h2>
+                <button
+                  onClick={() => setSelectedLog(null)}
+                  className="text-gray-400 hover:text-white transition-colors"
+                >
+                  <X size={24} />
+                </button>
+              </div>
+              <div className="space-y-4">
+                <div>
+                  <span className="text-gray-400 text-sm">Timestamp</span>
+                  <p className="text-white">{new Date(selectedLog.timestamp).toLocaleString()}</p>
+                </div>
+                <div>
+                  <span className="text-gray-400 text-sm">Level</span>
+                  <p><span className={`px-3 py-1 rounded text-sm font-medium ${levelColors[selectedLog.level]}`}>
+                    {selectedLog.level}
+                  </span></p>
+                </div>
+                <div>
+                  <span className="text-gray-400 text-sm">Service</span>
+                  <p className="text-white font-medium">{selectedLog.service}</p>
+                </div>
+                <div>
+                  <span className="text-gray-400 text-sm">Message</span>
+                  <p className="text-white whitespace-pre-wrap">{selectedLog.message}</p>
+                </div>
+                {selectedLog.traceId && (
+                  <div>
+                    <span className="text-gray-400 text-sm">Trace ID</span>
+                    <p className="text-white font-mono text-sm">{selectedLog.traceId}</p>
+                  </div>
+                )}
+                {selectedLog.userId && (
+                  <div>
+                    <span className="text-gray-400 text-sm">User ID</span>
+                    <p className="text-white font-mono text-sm">{selectedLog.userId}</p>
+                  </div>
+                )}
+                {selectedLog.metadata && (
+                  <div>
+                    <span className="text-gray-400 text-sm">Metadata</span>
+                    <div className="bg-gray-900 p-4 rounded mt-2">
+                      <pre className="text-sm text-gray-300">
+                        {JSON.stringify(selectedLog.metadata, null, 2)}
+                      </pre>
+                    </div>
+                  </div>
+                )}
+              </div>
+            </div>
+          </div>
+        )}
+      </div>
+    </div>
+  );
+};
+
+export default LogTriageSandbox;
