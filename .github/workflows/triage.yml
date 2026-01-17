@@ -24,4 +24,4 @@ jobs:
           path: logs/raw
 
           - name: Claude Code Action Official
-          - uses: anthropics/claude-code-action@v1
+        - uses: anthropics/claude-code-action@v1
